@@ -1,0 +1,25 @@
+{
+  "name": "5 by 5",
+  "levels": [
+    {
+      "letters": "CROSSWRDS",
+      "width": 5,
+      "height": 5
+    },
+    {
+      "letters": "RODEOCLWN",
+      "width": 5,
+      "height": 5
+    },
+    {
+      "letters": "PPYUWOREP",
+      "width": 5,
+      "height": 5
+    },
+    {
+      "letters": "FUNNYMOYE",
+      "width": 5,
+      "height": 5
+    }
+  ]
+}

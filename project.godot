@@ -1,0 +1,44 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="WordGameGodot"
+run/main_scene="uid://cw36tuyyslqx4"
+config/features=PackedStringArray("4.5", "C#", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+WordList="*res://WordList.cs"
+PersistentData="*res://PersistentData.cs"
+Worlds="*res://Worlds.cs"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=2340
+window/size/extend_to_title=true
+window/size/window_width_override=360
+window/size/window_height_override=780
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/stretch/scale=4.0
+window/handheld/orientation=1
+
+[dotnet]
+
+project/assembly_name="WordGameGodot"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
