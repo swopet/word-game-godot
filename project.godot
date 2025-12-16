@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="WordGameGodot"
+config/name="Orthograms"
 run/main_scene="uid://cw36tuyyslqx4"
 config/features=PackedStringArray("4.5", "C#", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://bt4flcp4afkt7"
 
 [autoload]
 
@@ -36,6 +36,10 @@ window/handheld/orientation=1
 [dotnet]
 
 project/assembly_name="WordGameGodot"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 

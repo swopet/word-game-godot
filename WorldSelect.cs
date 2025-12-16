@@ -146,14 +146,18 @@ public partial class WorldSelect : Control
 		// Create scroll container for level grid
 		var levelScrollContainer = new ScrollContainer();
 		levelScrollContainer.SizeFlagsVertical = Control.SizeFlags.ExpandFill;
+		levelScrollContainer.HorizontalScrollMode = ScrollContainer.ScrollMode.Disabled;
 		worldDetailContainer.AddChild(levelScrollContainer);
 
 		// Create grid container for level buttons
 		var gridContainer = new GridContainer();
 		gridContainer.Columns = 5; // 5 columns to fit 5 buttons across
+		var spacing = 2;
+		gridContainer.AddThemeConstantOverride("h_separation", spacing);
+		gridContainer.AddThemeConstantOverride("v_separation", spacing);
 		
-		// Calculate button size based on screen width (80 pixels per button)
-		float buttonSize = GetViewportRect().Size.X / 5.0f;
+		// Calculate button size based on screen width
+		float buttonSize = (GetViewportRect().Size.X - spacing * (gridContainer.Columns + 1))  / (float)gridContainer.Columns;
 		gridContainer.CustomMinimumSize = new Vector2(0, 0);
 		levelScrollContainer.AddChild(gridContainer);
 
@@ -174,7 +178,7 @@ public partial class WorldSelect : Control
 			// Set button modulate color based on solved status
 			if (isSolved)
 			{
-				levelButton.Modulate = new Color(0.7f, 1.0f, 0.7f, 1.0f); // Light green
+				levelButton.Modulate = new Color(0.3f, 0.6f, 0.3f, 1.0f); // Light green
 			}
 			else
 			{

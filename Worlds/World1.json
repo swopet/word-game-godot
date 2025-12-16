@@ -2,7 +2,17 @@
   "name": "5 by 5",
   "levels": [
     {
+      "letters": "ORTHOGAMS",
+      "width": 5,
+      "height": 5
+    },
+    {
       "letters": "CROSSWRDS",
+      "width": 5,
+      "height": 5
+    },
+    {     
+      "letters": "SPORKPOON",
       "width": 5,
       "height": 5
     },
@@ -18,6 +28,51 @@
     },
     {
       "letters": "FUNNYMOYE",
+      "width": 5,
+      "height": 5
+    },
+    {
+      "letters": "MAPLESYRU",
+      "width": 5,
+      "height": 5
+    },
+    {
+      "letters": "APPLESAUC",
+      "width": 5,
+      "height": 5
+    },
+    {
+      "letters": "GRAPEJUIC",
+      "width": 5,
+      "height": 5
+    },
+    {
+      "letters": "DUCKSQACK",
+      "width": 5,
+      "height": 5
+    },
+    {
+      "letters": "LOCALYOKE",
+      "width": 5,
+      "height": 5
+    },
+    {
+      "letters": "ZEBRAHOSE",
+      "width": 5,
+      "height": 5
+    },
+    {
+      "letters": "BANALCAAL",
+      "width": 5,
+      "height": 5
+    },
+    {
+      "letters": "FLORAFAUN",
+      "width": 5,
+      "height": 5
+    },
+    {
+      "letters": "RURALJROR",
       "width": 5,
       "height": 5
     }

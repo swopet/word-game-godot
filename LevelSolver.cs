@@ -8,6 +8,8 @@ public partial class LevelSolver : Control
 	// Static properties for passing level selection
 	public static int PendingWorldIndex { get; set; } = -1;
 	public static int PendingLevelIndex { get; set; } = -1;
+	private const int titleHeight = 60;
+	private const int buttonHeight = 60;
 
 	private Level currentLevel;
 	private World currentWorld;
@@ -164,7 +166,7 @@ public partial class LevelSolver : Control
 
 		// Title and navigation row (combined)
 		var titleNavContainer = new HBoxContainer();
-		titleNavContainer.CustomMinimumSize = new Vector2(0, 60);
+		titleNavContainer.CustomMinimumSize = new Vector2(0, titleHeight);
 		mainContainer.AddChild(titleNavContainer);
 
 		// Left arrow
@@ -216,7 +218,7 @@ public partial class LevelSolver : Control
 
 		// Bottom buttons
 		var bottomContainer = new HBoxContainer();
-		bottomContainer.CustomMinimumSize = new Vector2(0, 60);
+		bottomContainer.CustomMinimumSize = new Vector2(0, buttonHeight);
 		mainContainer.AddChild(bottomContainer);
 
 		shuffleButton = new Button();
@@ -251,22 +253,27 @@ public partial class LevelSolver : Control
 
 		gridContainer.Columns = width;
 		gridContainer.CustomMinimumSize = new Vector2(0, 0);
+		const int gridSpacing = 2;
+		gridContainer.AddThemeConstantOverride("h_separation", gridSpacing);
+		gridContainer.AddThemeConstantOverride("v_separation", gridSpacing);
 
 		// Calculate tile size based on viewport constraints
 		// Get available space for grid (subtract top/bottom UI elements)
 		Vector2 viewportSize = GetViewportRect().Size;
 		float availableWidth = viewportSize.X;
-		float availableHeight = viewportSize.Y - 60 - 120 - 60; // title, letters, buttons heights
+		float availableHeight = viewportSize.Y - titleHeight - buttonHeight; // title, letters, buttons heights
 		
-		// Account for margins: left/right padding (8px each) and gaps between tiles (4px gap)
+		// Account for margins: left/right padding (8px each) and gaps between tiles (2px gap)
 		float horizontalPadding = 8 + 8; // left + right padding
-		float horizontalMargin = (width - 1) * (width-1); // Gaps between tiles
-		float verticalMargin = (height - 1) * (height-1); // Gaps between tiles
+		float horizontalMargin = (width - 1) * gridSpacing; // Gaps between tiles
+		float verticalPadding = 8 + 8; // top + bottom padding
+		float verticalMargin = (height - 1) * gridSpacing; // Gaps between tiles
 		
 		// Calculate max tile size that fits both width and height constraints
 		float tileWidthSize = (availableWidth - horizontalPadding - horizontalMargin) / width;
-		float tileHeightSize = (availableHeight - verticalMargin) / height;
+		float tileHeightSize = (availableHeight - verticalPadding - verticalMargin) / height;
 		float tileSize = Mathf.Min(tileWidthSize, tileHeightSize);
+		GD.Print("Screen dimensions:" + viewportSize.ToString() + ", Calculated grid tile size: " + tileSize);
 
 		// Clear existing tiles
 		foreach (var child in gridContainer.GetChildren())
